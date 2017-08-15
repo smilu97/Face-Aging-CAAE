@@ -639,11 +639,6 @@ class FaceAging(object):
         )
 
     def predict(self, image_path, save_path, age_value, gender_value):
-        if not self.load_checkpoint():
-            print("\tFAILED >_<!")
-            exit(0)
-        else:
-            print("\tSUCCESS ^_^")
 
         if 0 <= age_value <= 5:
             age_value = 0

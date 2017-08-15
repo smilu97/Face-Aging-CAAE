@@ -4,3 +4,4 @@ secret.py
 .DS_Store
 venv
 test
+credential.json

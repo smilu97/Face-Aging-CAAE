@@ -1,6 +1,9 @@
 # -*- coding: utf8 -*-
 
-from ...FaceAging import FaceAging
+import sys
+sys.path.insert(0, '../..')
+
+from FaceAging import FaceAging
 import tensorflow as tf
 
 config = tf.ConfigProto()
@@ -11,6 +14,12 @@ model = FaceAging(
 	save_dir = './save',
 	dataset_name = 'UTKFace'
 )
+
+if model.load_checkpoint():
+	print 'Success!'
+else:
+	print 'Failed..'
+	exit(0)
 
 def predict(image_in_path, image_out_path, age, gender):
 	'''

@@ -6,7 +6,9 @@ imp.reload(sys)
 try: sys.setdefaultencoding('UTF8')
 except: pass
 
-from google.cloud import storage
+# GOOGLE_APPLICATION_CREDENTIALS = 'credential.json'
+from oauth2client.client import GoogleCredentials
+credentials = GoogleCredentials.get_application_default()
 
 # 플라스크 모듈을 설정합니다
 from flask import Flask
