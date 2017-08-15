@@ -86,7 +86,7 @@ def load_image(
         is_gray=False,  # gray scale or color image
 ):
     if is_gray:
-        image = imread(image_path, flatten=True).astype(np.float32)
+        image = imread(image_path, flatten=True, mode='RGB').astype(np.float32)
     else:
         image = imread(image_path).astype(np.float32)
     image = imresize(image, [image_size, image_size])
