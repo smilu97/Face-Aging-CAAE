@@ -15,4 +15,4 @@ bucket = client.get_bucket(FIREBASE_BUCKET)
 def upload_cloud(blobname, filename):
 	blob = bucket.blob(blobname)
 	blob.upload_from_filename(filename=filename)
-	return blob.public_url
+	return blob.generate_signed_url()
