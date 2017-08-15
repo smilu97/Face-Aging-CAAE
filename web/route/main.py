@@ -67,13 +67,13 @@ def post_predict():
 
 	predict_face(
 		image_in_path=cache_file_path + '.in',
-		image_out_path=cache_file_path + '.out',
+		image_out_path=cache_file_path + '.jpg',
 		age=age,
 		gender=gender
 	)
 
 	upload_path = '{}/{}'.format(user_key, rand_number)
 
-	public_url = upload_cloud(upload_path, cache_file_path + '.out')
+	public_url = upload_cloud(upload_path, cache_file_path + '.jpg')
 
 	return jsonify({'success': 1, 'afterUrl': public_url})

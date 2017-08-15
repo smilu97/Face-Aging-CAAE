@@ -111,7 +111,7 @@ def save_batch_images(
         ind_col = ind % size_frame[1]
         ind_row = ind // size_frame[1]
         frame[(ind_row * img_h):(ind_row * img_h + img_h), (ind_col * img_w):(ind_col * img_w + img_w), :] = image
-    imsave(save_path, frame, 'JPEG')
+    imsave(save_path, frame)
 
 
 
