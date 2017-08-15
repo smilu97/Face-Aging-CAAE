@@ -1,6 +1,7 @@
 # -*- coding: utf8 -*-
 
 from flask import Blueprint, jsonify, request
+import random
 
 app = Blueprint('main', __name__)
 
