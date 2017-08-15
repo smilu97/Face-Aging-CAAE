@@ -660,8 +660,10 @@ class FaceAging(object):
             age_value = 6
         elif 51 <= age_value <= 60:
             age_value = 7
-        elif 61 <= age_value:
+        elif 61 <= age_value <= 70:
             age_value = 8
+        else:
+            age_value = 9
 
         if gender_value == 'male':
             gender_value = 0
