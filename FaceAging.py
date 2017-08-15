@@ -696,9 +696,9 @@ class FaceAging(object):
         ) * self.image_value_range[0]
         query_labels[0, age_value] = self.image_value_range[-1]
 
-        images = np.tile(images, [81, 1, 1, 1])
-        query_labels = np.tile(query_labels, [81, 1])
-        query_gender = np.tile(query_gender, [81, 1])
+        images = np.tile(images, [100, 1, 1, 1])
+        query_labels = np.tile(query_labels, [100, 1])
+        query_gender = np.tile(query_gender, [100, 1])
 
         z, G = self.session.run(
             [self.z, self.G],
