@@ -13,6 +13,6 @@ client = storage.Client()
 bucket = client.get_bucket(FIREBASE_BUCKET)
 
 def upload_cloud(blobname, filename):
-	blobname = bucket.get_blob(blob)
+	blob = bucket.get_blob(blobname)
 	blob.upload_from_filename(filename=filename)
 	return blob.public_url
