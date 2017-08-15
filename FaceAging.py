@@ -645,6 +645,30 @@ class FaceAging(object):
         else:
             print("\tSUCCESS ^_^")
 
+        if 0 <= age_value <= 5:
+            age_value = 0
+        elif 6 <= age_value <= 10:
+            age_value = 1
+        elif 11 <= age_value <= 15:
+            age_value = 2
+        elif 16 <= age_value <= 20:
+            age_value = 3
+        elif 21 <= age_value <= 30:
+            age_value = 4
+        elif 31 <= age_value <= 40:
+            age_value = 5
+        elif 41 <= age_value <= 50:
+            age_value = 6
+        elif 51 <= age_value <= 60:
+            age_value = 7
+        elif 61 <= age_value:
+            age_value = 8
+
+        if gender_value == 'male':
+            gender_value = 0
+        else:
+            gender_value = 1
+
         num_samples = 1
 
         sample = [load_image(
@@ -669,7 +693,11 @@ class FaceAging(object):
             shape=(1, self.num_categories),
             dtype=np.float32
         ) * self.image_value_range[0]
-        query_labels[i, age_value] = self.image_value_range[-1]
+        query_labels[0, age_value] = self.image_value_range[-1]
+
+        images = np.tile(images, [81, 1, 1, 1])
+        query_labels = np.tile(query_labels, [81, 1])
+        query_gender = np.tile(query_gender, [81, 1])
 
         z, G = self.session.run(
             [self.z, self.G],

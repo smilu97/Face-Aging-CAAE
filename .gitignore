@@ -1,0 +1,6 @@
+data
+secret.py
+*.pyc
+.DS_Store
+venv
+test
