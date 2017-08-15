@@ -6,7 +6,7 @@ imp.reload(sys)
 try: sys.setdefaultencoding('UTF8')
 except: pass
 
-# GOOGLE_APPLICATION_CREDENTIALS = 'credential.json'
+GOOGLE_APPLICATION_CREDENTIALS = 'credential.json'
 from oauth2client.client import GoogleCredentials
 credentials = GoogleCredentials.get_application_default()
 

@@ -22,11 +22,11 @@ class FaceAging(object):
                  session,  # TensorFlow session
                  size_image=128,  # size the input images
                  size_kernel=5,  # size of the kernels in convolution and deconvolution
-                 size_batch=81,  # mini-batch size for training and testing, must be square of an integer
+                 size_batch=100,  # mini-batch size for training and testing, must be square of an integer
                  num_input_channels=3,  # number of channels of input images
                  num_encoder_channels=64,  # number of channels of the first conv layer of encoder
                  num_z_channels=50,  # number of channels of the layer z (noise or code)
-                 num_categories=9,  # number of categories (age segments) in the training dataset
+                 num_categories=10,  # number of categories (age segments) in the training dataset
                  num_gen_channels=1024,  # number of channels of the first deconv layer of generator
                  enable_tile_label=True,  # enable to tile the label
                  tile_ratio=1.0,  # ratio of the length between tiled label and z
@@ -293,8 +293,10 @@ class FaceAging(object):
                 label = 6
             elif 51 <= label <= 60:
                 label = 7
-            elif 61 <= label:
+            elif 61 <= label <= 70:
                 label = 8
+            else:
+                label = 9
             sample_label_age[i, label] = self.image_value_range[-1]
             gender = int(str(sample_files[i]).split('/')[-1].split('_')[1])
             sample_label_gender[i, gender] = self.image_value_range[-1]
@@ -357,8 +359,10 @@ class FaceAging(object):
                         label = 6
                     elif 51 <= label <= 60:
                         label = 7
-                    elif 61 <= label:
+                    elif 61 <= label <= 70:
                         label = 8
+                    else:
+                        label = 9
                     batch_label_age[i, label] = self.image_value_range[-1]
                     gender = int(str(batch_files[i]).split('/')[-1].split('_')[1])
                     batch_label_gender[i, gender] = self.image_value_range[-1]
